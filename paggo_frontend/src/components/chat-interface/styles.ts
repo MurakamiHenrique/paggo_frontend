@@ -25,7 +25,7 @@ export const HeaderTitle = styled.h3`
 `;
 
 export const MessagesContainer = styled.div`
-  height: 26rem;
+  height: 100%;
   overflow-y: auto;
   padding: ${theme.spacing.md};
   display: flex;
@@ -109,6 +109,13 @@ export const TypingDot = styled.div<{ delay: number }>`
   }
 `;
 
+export const ChatContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+`
+
 export const InputContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -118,4 +125,6 @@ export const InputContainer = styled.div`
   border-top: 1px solid ${theme.colors.border};
   padding: ${theme.spacing.md};
   gap: ${theme.spacing.md};
+  min-height: 12vh;
+  max-height: 20vh;
 `;

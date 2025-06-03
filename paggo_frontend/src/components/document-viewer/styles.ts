@@ -52,24 +52,52 @@ export const ActionButtons = styled.div`
   gap: ${theme.spacing.sm};
 `;
 
+
+export const DocumentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+`
+export const SectionTitle = styled.h3`
+  color: ${theme.colors.textSecondary};
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: ${theme.spacing.md};
+`;
+
 export const TextContainer = styled.div`
-  max-height: 32rem;
+  height: 100%;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: ${theme.colors.surfaceHover} transparent;
 `;
 
-export const SectionTitle = styled.h3`
-  color: ${theme.colors.textSecondary};
-  font-size: 0.875rem;
-  font-weight: 500;
-  margin: 0 0 ${theme.spacing.md} 0;
-`;
-
 export const TextContent = styled.div`
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: ${theme.colors.surface} transparent;
+  margin-left: 5%;
+  width: 94,73%;
+  height: 80%;
   background-color: ${theme.colors.surfaceHover};
   border-radius: ${theme.borderRadius.md};
+  margin: ${theme.spacing.md};
   padding: ${theme.spacing.md};
+
+  /* Add these styles for webkit browsers (Chrome, Safari, etc.) */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${theme.colors.surface};
+    border-radius: 4px;
+  }
 `;
 
 export const ExtractedText = styled.pre`

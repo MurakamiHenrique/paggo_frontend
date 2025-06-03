@@ -76,12 +76,18 @@ export default class LoginService {
 
   static register: Register = async ({ email, password }) => {
     try {
+       
+      console.log("Chegou no register final")
       const response: AxiosResponse<LoginResponse> = await api.post(
         "/auth/register",
         { email, password },
       );
 
+      console.log("Register na entrada da ponta:", response);
+
       const { user, access_token } = response.data;
+
+      console.log("Register response na ponta:", response.data);
 
       if (!user || !access_token) {
         return {

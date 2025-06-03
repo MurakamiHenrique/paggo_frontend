@@ -116,6 +116,8 @@ export function LoginPage() {
       password: registerForm.password,
     });
 
+    console.log("Registration result:", result);
+
     if (result) {
       router.push("/home");
     } else {

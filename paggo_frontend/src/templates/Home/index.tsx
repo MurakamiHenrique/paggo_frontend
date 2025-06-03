@@ -20,7 +20,7 @@ export default function HomePage() {
     useState<ProcessedDocument | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [documentHistory, setDocumentHistory] = useState<ProcessedDocument[]>(
-    [],
+    []
   );
   const [showHistory, setShowHistory] = useState(false);
 
@@ -85,33 +85,33 @@ export default function HomePage() {
         onSelectDocument={handleSelectHistoryDocument}
         currentDocumentId={currentDocument?.id}
       />
-
-      <S.HistoryButtonContainer>
-        <HistoryToggleButton
-          isOpen={showHistory}
-          count={documentHistory.length}
-          onClick={() => setShowHistory(!showHistory)}
-        />
-      </S.HistoryButtonContainer>
-
       <ContentArea>
         <Container>
-          <S.Header>
-            <S.HeaderContent>
-              <S.HeaderText>
-                <S.Title>Document Processing Platform</S.Title>
-                <S.Description>
-                  Upload documents, extract text with OCR, and get AI-powered
-                  explanations
-                </S.Description>
-              </S.HeaderText>
-              <S.HeaderActions>
-                <Button variant="ghost" onClick={logout}>
-                  Logout
-                </Button>
-              </S.HeaderActions>
-            </S.HeaderContent>
-          </S.Header>
+          <ContentArea>
+            <Container>
+              <S.Header>
+                <S.ButtonContainer>
+                  <HistoryToggleButton
+                    isOpen={showHistory}
+                    count={documentHistory.length}
+                    onClick={() => setShowHistory(!showHistory)}
+                  />
+                </S.ButtonContainer>
+                <S.HeaderText>
+                  <S.Title>Document Processing Platform</S.Title>
+                  <S.Description>
+                    Upload documents, extract text with OCR, and get AI-powered
+                    explanations
+                  </S.Description>
+                </S.HeaderText>
+                <S.ButtonContainer>
+                  <Button variant="ghost" onClick={logout}>
+                    Logout
+                  </Button>
+                </S.ButtonContainer>
+              </S.Header>
+            </Container>
+          </ContentArea>
 
           {!currentDocument && !isProcessing && (
             <S.UploadContainer>

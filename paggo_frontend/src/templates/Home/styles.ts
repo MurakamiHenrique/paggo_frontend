@@ -1,10 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../../theme";
 
-export const Header = styled.div`
-  margin-bottom: ${theme.spacing.xl};
-`;
-
 export const HeaderContent = styled.div`
   display: flex;
   align-items: center;
@@ -15,6 +11,21 @@ export const HeaderContent = styled.div`
 export const HeaderText = styled.div`
   text-align: center;
   flex: 1;
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  width: 8rem;
+`;
+
+export const Header = styled.div`
+  margin-bottom: ${theme.spacing.lg};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 0;
 `;
 
 export const Title = styled.h1`
@@ -37,7 +48,8 @@ export const HeaderActions = styled.div`
 `;
 
 export const UploadContainer = styled.div`
-  max-width: 42rem;
+  width: 60vw;
+  height: 50vh;
   margin: 0 auto;
 `;
 

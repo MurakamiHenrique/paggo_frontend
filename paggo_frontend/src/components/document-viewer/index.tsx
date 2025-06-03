@@ -30,52 +30,56 @@ ${document.extractedText}`;
 
   return (
     <Card>
-      <CardHeader>
-        <S.HeaderContainer>
-          <S.DocumentInfo>
-            <S.IconContainer>
-              <FileText size={24} />
-            </S.IconContainer>
-            <S.InfoContent>
-              <S.DocumentTitleContainer>
-                <S.DocumentTitle>{document.fileName}</S.DocumentTitle>
-              </S.DocumentTitleContainer>
-              <S.MetaInfo>
-                <S.MetaItem>
-                  <Calendar size={12} />
-                  <span>
-                    {document.uploadedAt.toLocaleString("pt-BR", {
-                      year: "numeric",
-                      month: "numeric",
-                      day: "numeric",
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    })}
-                  </span>
-                </S.MetaItem>
-                <S.MetaItem>
-                  <HardDrive size={12} />
-                  <span>{(document.size / 1024 / 1024).toFixed(2)} MB</span>
-                </S.MetaItem>
-              </S.MetaInfo>
-            </S.InfoContent>
-          </S.DocumentInfo>
-          <S.ActionButtons>
-            <S.DownloadButton variant="outline" size="md" onClick={handleDownload}>
-              <Download size={18} />
-              Download OCR
-            </S.DownloadButton>
-          </S.ActionButtons>
-        </S.HeaderContainer>
-      </CardHeader>
-      <CardContent>
+      <S.DocumentContainer>
+        <CardHeader>
+          <S.HeaderContainer>
+            <S.DocumentInfo>
+              <S.IconContainer>
+                <FileText size={24} />
+              </S.IconContainer>
+              <S.InfoContent>
+                <S.DocumentTitleContainer>
+                  <S.DocumentTitle>{document.fileName}</S.DocumentTitle>
+                </S.DocumentTitleContainer>
+                <S.MetaInfo>
+                  <S.MetaItem>
+                    <Calendar size={12} />
+                    <span>
+                      {document.uploadedAt.toLocaleString("pt-BR", {
+                        year: "numeric",
+                        month: "numeric",
+                        day: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })}
+                    </span>
+                  </S.MetaItem>
+                  <S.MetaItem>
+                    <HardDrive size={12} />
+                    <span>{(document.size / 1024 / 1024).toFixed(2)} MB</span>
+                  </S.MetaItem>
+                </S.MetaInfo>
+              </S.InfoContent>
+            </S.DocumentInfo>
+            <S.ActionButtons>
+              <S.DownloadButton
+                variant="outline"
+                size="md"
+                onClick={handleDownload}
+              >
+                <Download size={18} />
+                Download OCR
+              </S.DownloadButton>
+            </S.ActionButtons>
+          </S.HeaderContainer>
+        </CardHeader>
         <S.TextContainer>
           <S.SectionTitle>Extracted Text (OCR)</S.SectionTitle>
           <S.TextContent>
             <S.ExtractedText>{document.extractedText}</S.ExtractedText>
           </S.TextContent>
         </S.TextContainer>
-      </CardContent>
+      </S.DocumentContainer>
     </Card>
   );
 }

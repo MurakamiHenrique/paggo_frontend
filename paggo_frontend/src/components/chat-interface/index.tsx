@@ -109,14 +109,14 @@ export function ChatInterface({
     URL.revokeObjectURL(url);
   } catch (error) {
     console.error('Error downloading document:', error);
-    // Optional: toast or user notification here
   }
 };
 
 
 
   return (
-    <Card>
+    <Card style={{ justifyContent:"space-between",height: "100%" }}>
+      <S.ChatContainer>
       <CardHeader>
         <S.HeaderContainer>
           <S.HeaderContent>
@@ -136,8 +136,7 @@ export function ChatInterface({
           </Button>
         </S.HeaderContainer>
       </CardHeader>
-      <CardContent style={{ padding: 0 }}>
-        <S.MessagesContainer>
+      <S.MessagesContainer>
           {messages.map((message) => (
             <S.MessageContainer
               key={message.id}
@@ -197,7 +196,8 @@ export function ChatInterface({
             <Send size={16} />
           </Button>
         </S.InputContainer>
-      </CardContent>
+      </S.ChatContainer>
+
     </Card>
   );
 }
