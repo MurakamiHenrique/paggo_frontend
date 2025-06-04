@@ -13,7 +13,6 @@ export const documentService = {
 
   async checkBackendStatus(): Promise<boolean> {
     try {
-      console.log("Checking backend health...");
       const response = await api.get("/documents/health");
       return response.status === 200;
     } catch (error) {
@@ -52,7 +51,6 @@ export const documentService = {
             const percentCompleted = Math.round(
               (progressEvent.loaded * 100) / progressEvent.total!,
             );
-            console.log(`Upload progress: ${percentCompleted}%`);
           },
         },
       );
@@ -81,7 +79,6 @@ export const documentService = {
         `/documents/${documentId}`,
       );
 
-      console.log("Fetched document data:", data);
       const chatMessages = data.chatInteractions.flatMap((interaction) => {
         const userMessage: Message = {
           id: `user-${interaction.id}`,
@@ -122,9 +119,7 @@ export const documentService = {
 
   async getAllDocuments(): Promise<ProcessedDocument[]> {
     try {
-      console.log("Getting all documents...");
       const response = await api.get("/documents/history");
-      console.log("Response:", response);
       const { data } = response;
       return data.map((doc: any) => ({
         id: doc.id,

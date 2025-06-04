@@ -140,11 +140,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       destroyCookie(undefined, "Paggo:token");
       destroyCookie(undefined, "Paggo:userId");
 
-      console.log("Chegou no register", email, password);
-
       const response = await LoginService.register({ email, password });
-
-      console.log("Register response:", response);
 
       if (!response.data || response.error) {
         console.error("Registration failed:", response.error);
@@ -172,8 +168,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         }
 
         setUserData({ user: response.data.user, token: response.data.access_token });
-
-        console.log("User registered successfully:", response.data.user);
 
         return true;
       }
