@@ -1,6 +1,6 @@
 import { ThemeProvider } from "styled-components";
 import { theme } from "../theme";
-import { AuthProvider } from "../hooks/use-auth";
+import { AuthProvider } from "./use-auth";
 
 interface AppProviderProps {
   children: React.ReactNode;
